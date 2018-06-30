@@ -17,7 +17,7 @@ Despite Plasma paper, we will focus on implementations where Ethereum public net
 ### How users can be sure funds locked on root chain are not stolen?
 
 
-**References**:
+# References:
 1. https://plasma.io/plasma.pdf
 2. https://ethresear.ch/t/minimal-viable-plasma/
 
