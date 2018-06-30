@@ -7,6 +7,9 @@ This projects aims to implement the Plasma framework described at https://plasma
 ## Restrictions 
 Despite Plasma paper, we will focus on implementations where Ethereum public network is the root chain and only 1 level of depth is possible. We won't detail the kind of blockchain network built (sidechain SPV based, drive chain, etc.). We will simply refer to l1 (level 1 or root chain), l2 (blockchain committing to lv1), etc.
 
+## Architecture
+
+
 # Main concerns
 ## How are transactions sent to l2 chain?
 ## How are transactions sent to l2 chain to root chain?
