@@ -6,7 +6,7 @@ This projects aims to implement the Plasma framework described at https://plasma
 
 **Restrictions**
 
-Despite Plasma paper, we will focus on implementations where Ethereum public network is the root chain.
+Despite Plasma paper, we will focus on implementations where Ethereum public network is the root chain and only 1 level of depth is possible.
 
 **References**:
 1. https://plasma.io/plasma.pdf
