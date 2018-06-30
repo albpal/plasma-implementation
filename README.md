@@ -5,6 +5,7 @@ This projects aims to implement the Plasma framework described at https://plasma
 2. Develop an implementation of Plasma framework
 
 **Restrictions**
+
 Despite Plasma paper, we will focus on implementations where Ethereum public network is the root chain.
 
 **References**:
