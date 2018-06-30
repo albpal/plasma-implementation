@@ -10,11 +10,11 @@ Despite Plasma paper, we will focus on implementations where Ethereum public net
 ## Architecture
 
 
-# Main concerns
-## How is value sent to l2 chain?
-## How value is transferred in l2 and correctly reflected on l1?
-## How is value sent back to root chain?
-## How users can be sure funds locked on root chain are not stolen?
+## Main concerns
+### How is value sent to l2 chain?
+### How value is transferred in l2 and correctly reflected on l1?
+### How is value sent back to root chain?
+### How users can be sure funds locked on root chain are not stolen?
 
 
 **References**:
