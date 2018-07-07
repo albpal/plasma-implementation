@@ -1,16 +1,16 @@
 import rlp
+import sha3
 from py_ecc.secp256k1 import ecdsa_raw_recover
 
 class Transaction:
-    is_signed = None
     blocknums = None
     tx_indexes = None
     out_indexes = None
     new_owner = None
     value = None
-    v = None
-    r = None
-    s = None
+    is_signed = None
+    (v,r,s) = (None, None, None)
+
     def __init__(self, blocknums, tx_indexes, out_indexes, new_owner, value):
         self.is_signed = False
         self.blocknums = blocknums
@@ -27,5 +27,12 @@ class Transaction:
 
     def sign(self, v, r, s):
         self.is_signed = True
-        self.v, self.r, self.s = v,r,s
-        return ecdsa_raw_recover(self.serialize(), (v, r, s))
+        (self.v, self.r, self.s) = (v,r,s)
+
+    def who_signed(self):
+        if not self.is_signed:
+            raise Exception("Transaction has not been signed yet")
+        return ecdsa_raw_recover(self.serialize(), (self.v, self.r, self.s))
+
+    def getHash(self):
+        return sha3.keccak_256(self.serialize()).hexdigest()

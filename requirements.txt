@@ -1,0 +1,3 @@
+pysha3
+py_ecc
+git+https://github.com/ethereum/pyrlp
