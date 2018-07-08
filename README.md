@@ -7,15 +7,20 @@ This projects aims to implement the Plasma framework described at https://plasma
 ## Restrictions
 Despite Plasma paper, we will focus on implementations where Ethereum public network is the root chain and only 1 level of depth is possible. We won't detail the kind of blockchain network built (sidechain SPV based, drive chain, etc.). We will simply refer to l1 (level 1 or root chain), l2 (blockchain committing to lv1), etc.
 
-## Main concerns
-### How is value sent to l2 chain?
-We defined *rootContract* as the contract deployed on the Ethereum blockchain.
-I have 5 ETH and want to transfer 1 of them to this l2 chain. I sent 1 ETH to *rootContract* attached on a transaction executing *deposit()* function.
+## Architecture
+There are three main pieces:
+* Ethereum main network
+* Plasma chain network
+* Plasma anchoring
 
-### How value is transferred in l2 and correctly reflected on l1?
-### How is value sent back to root chain?
-### How users can be sure funds locked on root chain are not stolen?
+### Ethereum main network
+It's a smart contract deployed on Ethereum public network. It will maintain, mainly, the following data structure:
+* Block list. Each one containing:
+  * The root of a Merkle Tree (whatever how plasma chain bundles the transactions)
+  * Block timestamp
 
+### Plasma chain network
+The child chain where transactions can reference UTXO from the main network and transact with them without committing to Ethereum. The consensus and client implementation can be arbitrary but data has to be available to the parties involved in a transaction.
 
 # References:
 1. https://plasma.io/plasma.pdf

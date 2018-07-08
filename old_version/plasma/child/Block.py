@@ -7,18 +7,22 @@ class Block:
     rootMerkleTree = []
     merkleTree = []
     def __init__(self, transactions):
+        if len(transactions) % 2 != 0:
+            transactions.append(transactions[-1])
         self.transactions = transactions
-        self.rootMerkleTree = self.getMerkleTree()[0]
         self.merkleTree = self.getMerkleTree()
+        self.rootMerkleTree = self.merkleTree[0]
+
+    def getrootMerkleTree(self):
+        return self.rootMerkleTree
 
     def joinHexHashes(self, hash1, hash2):
         union_hash = hash1 + hash2
         return binascii.unhexlify(union_hash)
 
     def generateMerkleTree(self, hashes):
-        if not len(hashes) % 2 == 0:
-            if len(hashes) == 1:
-                hashes.append(hashes[-1])
+        assert len(hashes) % 2 == 0
+
         if len(hashes) == 2:
             hashes.insert(0, sha3.keccak_256(self.joinHexHashes(hashes[0], hashes[1])).hexdigest())
             return hashes
@@ -35,9 +39,9 @@ class Block:
 
         return self.generateMerkleTree(tx_hashes)
 
-    def getProof(self, txraw):
-        txposition = self.lookupTransactionPosition(txraw)
-        #print("Transaction " + txraw + " fount at position ", txposition)
+    def getProof(self, txhash):
+        txposition = self.lookupTransactionPosition(txhash)
+        #print("Transaction " + txhash + " fount at position ", txposition)
         return self.getProofPath(txposition, self.merkleTree, len(self.transactions))
 
     def lookupTransactionPosition(self, txraw):

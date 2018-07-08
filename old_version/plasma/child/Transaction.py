@@ -8,11 +8,9 @@ class Transaction:
     out_indexes = None
     new_owner = None
     value = None
-    is_signed = None
     (v,r,s) = (None, None, None)
 
     def __init__(self, blocknums, tx_indexes, out_indexes, new_owner, value):
-        self.is_signed = False
         self.blocknums = blocknums
         self.tx_indexes = tx_indexes
         self.out_indexes = out_indexes
@@ -20,18 +18,15 @@ class Transaction:
         self.value = value
 
     def is_signed(self):
-        return self.is_signed;
+        return (v,r,s) != (None, None, None);
 
     def serialize(self):
         return rlp.encode([self.blocknums, self.tx_indexes, self.out_indexes, self.new_owner, self.value])
 
     def sign(self, v, r, s):
-        self.is_signed = True
         (self.v, self.r, self.s) = (v,r,s)
 
     def who_signed(self):
-        if not self.is_signed:
-            raise Exception("Transaction has not been signed yet")
         return ecdsa_raw_recover(self.serialize(), (self.v, self.r, self.s))
 
     def getHash(self):
