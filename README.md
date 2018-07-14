@@ -63,7 +63,7 @@ If you can both attest inclusion of a transaction and ownership, you will be abl
 The algorithm on the root blockchain only check for the two previous attestations when an user wants to withdraw funds. However, it doesn't check all the history of the blocks, it only stores hashes. The users (or a service) has to monitor the blockchain. Let's suppose
 
     A has 1 ETH in a particular block committed at date X
-    A sends 1ETH to B. A new block is generated and committed at date Y
+    A sends 1ETH to B. A new block is generated and committed at a later date Y
 
 What happens if A wants to withdraw 1 ETH on the root blockchain he/she has at date X? The algorithm will accept both attestations. B has to detect that A wants to withdraw funds that has been already expended and he/she has to send a proof of fraud, ie, show a transaction attesting A has spend the value in a later block. In fact, this proof of fraud can be done by anyone. To allow these proof of fraud, users that want to withdraw value, have to wait a period of time before the funds are sent back to the user.
 
