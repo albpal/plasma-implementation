@@ -74,7 +74,10 @@ The project has been built with [Truffle](https://truffleframework.com/). Instal
 
 1. Clone the project:
 
-```git clone https://github.com/albpal/plasma-implementation.git```
+```
+git clone https://github.com/albpal/plasma-implementation.git
+cd plasma
+```
 
 2. Build the smart contracts:
 
