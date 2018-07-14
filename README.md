@@ -82,7 +82,7 @@ cd plasma
 
 2. Build the smart contracts:
 
-```truffle build```
+```truffle compile```
 
 3. Deploy the smart contracts to a development blockchain. [Ganache](https://truffleframework.com/ganache) is a good choice.
 
@@ -90,7 +90,20 @@ cd plasma
 
 4. Run the tests:
 
-```truffle test```
+```
+truffle test
+Using network 'development'.
+
+
+
+  Contract: rootChain
+    ✓ Block submit (178ms)
+    ✓ Deposit (128ms)
+
+
+  2 passing (430ms)
+
+```
 
 5. Enjoy!
 
