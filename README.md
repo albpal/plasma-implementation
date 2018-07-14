@@ -69,6 +69,26 @@ What happens if A wants to withdraw 1 ETH  on the root blockchain he/she has at 
 ## Scope of the project
 Despite Plasma paper, we will focus on implementations where Ethereum public network is the root chain and only 1 level of depth is possible. We won't detail the kind of blockchain network built (sidechain SPV based, drive chain, etc.) upon it. We will simply refer to l1 (level 1 or root chain), l2 (blockchain committing to lv1), etc.
 
+# Setup the project
+The project has been built with [Truffle](https://truffleframework.com/). Install it to fully integrate with the development pipeline.
+
+1. Clone the project:
+
+```git clone https://github.com/albpal/plasma-implementation.git```
+
+2. Build the smart contracts:
+
+```truffle build```
+
+3. Deploy the smart contracts to a development blockchain. [Ganache](https://truffleframework.com/ganache) is a good choice.
+
+```truffle deploy```
+
+4. Run the tests:
+
+```truffle test```
+
+5. Enjoy!
 
 # References:
 1. https://plasma.io/plasma.pdf
